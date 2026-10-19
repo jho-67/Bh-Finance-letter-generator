@@ -122,34 +122,11 @@
       margin-bottom: 12px;
     }
 
-    .logo-brand-block {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    /* Vector SVG Replica of the BHFS Blue Wings/Shield Logo */
-    .company-logo {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .company-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
     .brand-title {
       font-size: 26px;
       font-weight: 900;
       letter-spacing: 0.5px;
-      color: #0b2545;
-      line-height: 1.1;
+      color: #002b66;
     }
 
     .brand-tagline {
@@ -168,7 +145,6 @@
       justify-content: center;
       background-color: #f8fafc;
       overflow: hidden;
-      flex-shrink: 0;
     }
 
     .borrower-photo-box img {
@@ -331,8 +307,8 @@
         <input type="date" id="inputSanctionDate">
       </div>
       <div class="form-group">
-        <label>Sanction Letter No. (Auto/Editable)</label>
-        <input type="text" id="inputLetterNo" readonly style="background-color: #f8fafc; font-weight: bold;">
+        <label>Sanction Letter No.</label>
+        <input type="text" id="inputLetterNo" value="BHFS/2026/PL-00012">
       </div>
       <div class="form-group">
         <label>Sanctioned Amount (₹)</label>
@@ -349,14 +325,9 @@
         <label>Borrower Photo</label>
         <input type="file" id="inputPhoto" accept="image/*">
       </div>
-      <div class="form-group">
-        <label>Custom Company Logo (Optional)</label>
-        <input type="file" id="inputCustomLogo" accept="image/*">
-      </div>
     </div>
     <div class="btn-container">
-      <button onclick="calculateAndRender(false)">Update Details</button>
-      <button style="background-color: #6366f1;" onclick="calculateAndRender(true)">Generate Next Series No.</button>
+      <button onclick="calculateAndRender()">Update Document</button>
       <button class="export-btn" onclick="exportHighQualityImage()">Download High-Quality Image</button>
     </div>
   </div>
@@ -367,26 +338,10 @@
       
       <!-- Top Section -->
       <div class="doc-header">
-        <div class="logo-brand-block">
-          <!-- Vector Logo Icon Replica (or user uploaded) -->
-          <div class="company-logo" id="logoContainer">
-            <svg viewBox="0 0 100 100" width="52" height="52">
-              <defs>
-                <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#002b66" />
-                  <stop offset="100%" stop-color="#0066cc" />
-                </linearGradient>
-              </defs>
-              <path d="M50 8 L85 24 C85 58 50 88 50 88 C50 88 15 58 15 24 Z" fill="url(#shieldGrad)" />
-              <path d="M30 46 L44 60 L70 34" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            </svg>
-          </div>
-          <div>
-            <div class="brand-title">BH FINANCIAL SERVICES[span_0](start_span)[span_0](end_span)</div>
-            <div class="brand-tagline">Outrun For Bargain[span_1](start_span)[span_1](end_span)</div>
-          </div>
+        <div>
+          <div class="brand-title">BH FINANCIAL SERVICES</div>
+          <div class="brand-tagline">Outrun For Bargain</div>
         </div>
-
         <!-- Photo Container -->
         <div class="borrower-photo-box" id="borrowerPhotoContainer">
           <span class="placeholder-text">Borrower Photo</span>
@@ -394,83 +349,83 @@
       </div>
 
       <div class="meta-row">
-        <div><strong>Sanctioned Date:</strong> <span id="outSanctionDate"></span>[span_2](start_span)[span_2](end_span)</div>
-        <div><strong>Sanction Letter No:</strong> <span id="outLetterNo"></span>[span_3](start_span)[span_3](end_span)</div>
+        <div><strong>Sanctioned Date:</strong> <span id="outSanctionDate"></span></div>
+        <div><strong>Sanction Letter No:</strong> <span id="outLetterNo"></span></div>
       </div>
 
       <div class="meta-row" style="margin-bottom: 12px;">
-        <div><strong>To:</strong> <span id="outToRecipient"></span>[span_4](start_span)[span_4](end_span)</div>
+        <div><strong>To:</strong> <span id="outToRecipient"></span></div>
       </div>
 
-      <div class="doc-title-bar">LOAN SANCTION / DISBURSEMENT LETTER[span_5](start_span)[span_5](end_span)</div>
+      <div class="doc-title-bar">LOAN SANCTION / DISBURSEMENT LETTER</div>
 
-      <div class="subject-line">Subject: Sanction of Personal Loan Facility[span_6](start_span)[span_6](end_span)</div>
+      <div class="subject-line">Subject: Sanction of Personal Loan Facility</div>
 
-      <div class="salutation">Dear <span id="outSalutationName"></span>,[span_7](start_span)[span_7](end_span)</div>
+      <div class="salutation">Dear <span id="outSalutationName"></span>,</div>
 
       <p class="lead-text">
-        We are pleased to inform you that your application for a personal loan has been approved by BH FINANCIAL SERVICES. Below are the key terms and details governing this sanction facility:[span_8](start_span)[span_8](end_span)
+        We are pleased to inform you that your application for a personal loan has been approved by BH FINANCIAL SERVICES. Below are the key terms and details governing this sanction facility:
       </p>
 
       <!-- Details Table -->
-      <div class="section-title">Key Loan Details[span_9](start_span)[span_9](end_span)</div>
+      <div class="section-title">Key Loan Details</div>
       <table class="doc-table details-table">
         <tbody>
           <tr>
-            <td>Lender Name[span_10](start_span)[span_10](end_span)</td>
-            <td><strong>BH FINANCIAL SERVICES</strong>[span_11](start_span)[span_11](end_span)</td>
+            <td>Lender Name</td>
+            <td><strong>BH FINANCIAL SERVICES</strong></td>
           </tr>
           <tr>
-            <td>Borrower Name[span_12](start_span)[span_12](end_span)</td>
+            <td>Borrower Name</td>
             <td><span id="outDetailBorrower"></span></td>
           </tr>
           <tr>
-            <td>Contact Number[span_13](start_span)[span_13](end_span)</td>
+            <td>Contact Number</td>
             <td><span id="outDetailPhone"></span></td>
           </tr>
           <tr>
-            <td>Loan Type[span_14](start_span)[span_14](end_span)</td>
-            <td>Personal Loan[span_15](start_span)[span_15](end_span)</td>
+            <td>Loan Type</td>
+            <td>Personal Loan</td>
           </tr>
           <tr>
-            <td>Sanctioned Amount[span_16](start_span)[span_16](end_span)</td>
+            <td>Sanctioned Amount</td>
             <td><strong>₹<span id="outPrincipal"></span></strong></td>
           </tr>
           <tr>
-            <td>Applicable Rate of Interest[span_17](start_span)[span_17](end_span)</td>
+            <td>Applicable Rate of Interest</td>
             <td><span id="outInterestRate"></span></td>
           </tr>
           <tr>
-            <td>Loan Tenure[span_18](start_span)[span_18](end_span)</td>
+            <td>Loan Tenure</td>
             <td><span id="outTenure"></span></td>
           </tr>
           <tr>
-            <td>Repayment Mode[span_19](start_span)[span_19](end_span)</td>
-            <td>Equated Monthly Installment (EMI)[span_20](start_span)[span_20](end_span)</td>
+            <td>Repayment Mode</td>
+            <td>Equated Monthly Installment (EMI)</td>
           </tr>
           <tr>
-            <td>Monthly EMI[span_21](start_span)[span_21](end_span)</td>
+            <td>Monthly EMI</td>
             <td><strong>₹<span id="outEMI"></span></strong></td>
           </tr>
           <tr>
-            <td>Total Repayment Amount[span_22](start_span)[span_22](end_span)</td>
+            <td>Total Repayment Amount</td>
             <td><strong>₹<span id="outTotalRepay"></span></strong></td>
           </tr>
           <tr>
-            <td>Total Interest Payable[span_23](start_span)[span_23](end_span)</td>
+            <td>Total Interest Payable</td>
             <td><strong>₹<span id="outTotalInterest"></span></strong></td>
           </tr>
         </tbody>
       </table>
 
       <!-- Schedule Table -->
-      <div class="section-title">Monthly Repayment Schedule[span_24](start_span)[span_24](end_span)</div>
+      <div class="section-title">Monthly Repayment Schedule</div>
       <table class="doc-table schedule-table">
         <thead>
           <tr>
-            <th>EMI No.[span_25](start_span)[span_25](end_span)</th>
-            <th>Due Date[span_26](start_span)[span_26](end_span)</th>
-            <th>Monthly EMI Amount[span_27](start_span)[span_27](end_span)</th>
+            <th>EMI No.</th>
+            <th>Due Date</th>
+            <th>Monthly EMI Amount</th>
           </tr>
         </thead>
         <tbody id="scheduleTableBody">
@@ -479,23 +434,23 @@
       </table>
 
       <div class="closing-note">
-        Please acknowledge your acceptance by signing below.[span_28](start_span)[span_28](end_span)
+        Please acknowledge your acceptance by signing below.
       </div>
 
       <!-- Signatures -->
       <div class="sign-section">
         <div class="lender-sign-block">
-          <div>Yours faithfully,[span_29](start_span)[span_29](end_span)</div>
-          <div style="font-weight: bold; margin-top: 4px;">BH FINANCIAL SERVICES[span_30](start_span)[span_30](end_span)</div>
+          <div>Yours faithfully,</div>
+          <div style="font-weight: bold; margin-top: 4px;">BH FINANCIAL SERVICES</div>
           <div class="signature-space">Authorized Signatory</div>
         </div>
 
         <div class="borrower-ack-block">
-          <div class="ack-title">ACCEPTANCE ACKNOWLEDGEMENT[span_31](start_span)[span_31](end_span)</div>
-          <div class="ack-desc">I accept the terms and conditions of the loan facility mentioned above.[span_32](start_span)[span_32](end_span)</div>
+          <div class="ack-title">ACCEPTANCE ACKNOWLEDGEMENT</div>
+          <div class="ack-desc">I accept the terms and conditions of the loan facility mentioned above.</div>
           <div class="signature-space">
-            Borrower Signature: _______________________[span_33](start_span)[span_33](end_span)<br><br>
-            Date: __________________________________[span_34](start_span)[span_34](end_span)
+            Borrower Signature: _______________________<br><br>
+            Date: __________________________________
           </div>
         </div>
       </div>
@@ -504,23 +459,8 @@
   </div>
 
   <script>
-    // Initialize Sanction Date
+    // Set default date to today
     document.getElementById('inputSanctionDate').value = new Date().toISOString().split('T')[0];
-
-    // Auto-Generating Series Engine (Stored persistently in browser localStorage)
-    function getNextLetterNumber(increment = false) {
-      const year = new Date().getFullYear();
-      let currentSeq = parseInt(localStorage.getItem('bhfs_sanction_seq') || "12", 10);
-      if (increment) {
-        currentSeq += 1;
-        localStorage.setItem('bhfs_sanction_seq', currentSeq);
-      }
-      const formattedSeq = String(currentSeq).padStart(5, '0');
-      return `BHFS/${year}/PL-${formattedSeq}`;
-    }
-
-    // Initialize the Letter Number
-    document.getElementById('inputLetterNo').value = getNextLetterNumber(false);
 
     // Borrower Image Handler
     document.getElementById('inputPhoto').addEventListener('change', function(e) {
@@ -530,19 +470,6 @@
         reader.onload = function(event) {
           const container = document.getElementById('borrowerPhotoContainer');
           container.innerHTML = `<img src="${event.target.result}" alt="Borrower Image">`;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    // Custom Logo Image Handler
-    document.getElementById('inputCustomLogo').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          const container = document.getElementById('logoContainer');
-          container.innerHTML = `<img src="${event.target.result}" alt="Company Logo">`;
         };
         reader.readAsDataURL(file);
       }
@@ -563,19 +490,15 @@
     }
 
     // Calculation & Render Engine
-    function calculateAndRender(shouldIncrement = false) {
-      if (shouldIncrement) {
-        document.getElementById('inputLetterNo').value = getNextLetterNumber(true);
-      }
-
+    function calculateAndRender() {
       const borrowerName = document.getElementById('inputBorrowerName').value.trim() || 'J Ravikumar';
       const phone = document.getElementById('inputBorrowerPhone').value.trim() || '1234567890';
-      const letterNo = document.getElementById('inputLetterNo').value;
+      const letterNo = document.getElementById('inputLetterNo').value.trim() || 'BHFS/2026/PL-00012';
       const sanctionDateInput = document.getElementById('inputSanctionDate').value;
       const principal = parseFloat(document.getElementById('inputLoanAmount').value) || 0;
       const tenureMonths = parseInt(document.getElementById('inputTenure').value, 10);
 
-      // Math Engine:
+      // Business Rule Math Engine:
       // 3 Months = 10% Flat Rate
       // 6 Months = 20% Flat Rate
       let flatRatePercentage = 0;
@@ -609,7 +532,7 @@
       document.getElementById('outTotalRepay').innerText = formatCurrency(totalRepayment);
       document.getElementById('outTotalInterest').innerText = formatCurrency(totalInterest);
 
-      // Populate Repayment Schedule
+      // Populate EMI Schedule Table
       const scheduleBody = document.getElementById('scheduleTableBody');
       scheduleBody.innerHTML = '';
 
@@ -628,4 +551,29 @@
     }
 
     // High-Resolution Image Exporter (3x Scale)
-    function exportHighQuality
+    function exportHighQualityImage() {
+      const docElement = document.getElementById('document-canvas');
+      
+      const options = {
+        scale: 3, // High DPI / Crisp output
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff'
+      };
+
+      html2canvas(docElement, options).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `Sanction_Letter_${document.getElementById('inputBorrowerName').value.replace(/\s+/g, '_')}.png`;
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
+      }).catch(err => {
+        alert("Failed to generate image: " + err);
+      });
+    }
+
+    // Initial run on load
+    window.onload = calculateAndRender;
+  </script>
+</body>
+</html>
+
